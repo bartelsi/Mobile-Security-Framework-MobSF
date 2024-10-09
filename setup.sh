@@ -53,8 +53,8 @@ echo '[INSTALL] Clean Up'
 bash scripts/clean.sh y
 
 echo '[INSTALL] Migrating Database'
-export DJANGO_SUPERUSER_USERNAME=mobsf
-export DJANGO_SUPERUSER_PASSWORD=mobsf
+export DJANGO_SUPERUSER_USERNAME=admin
+export DJANGO_SUPERUSER_PASSWORD=admin
 python3 -m poetry run python manage.py makemigrations
 python3 -m poetry run python manage.py makemigrations StaticAnalyzer
 python3 -m poetry run python manage.py migrate

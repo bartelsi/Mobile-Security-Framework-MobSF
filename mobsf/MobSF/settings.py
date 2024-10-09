@@ -261,75 +261,75 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 # Better logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'standard': {
-            'format': '[%(levelname)s] %(asctime)-15s - %(message)s',
-            'datefmt': '%d/%b/%Y %H:%M:%S',
-        },
-        'color': {
-            '()': 'colorlog.ColoredFormatter',
-            'format':
-                '%(log_color)s[%(levelname)s] %(asctime)-15s - %(message)s',
-            'datefmt': '%d/%b/%Y %H:%M:%S',
-            'log_colors': {
-                'DEBUG': 'cyan',
-                'INFO': 'green',
-                'WARNING': 'yellow',
-                'ERROR': 'red',
-                'CRITICAL': 'red,bg_white',
-            },
-        },
-    },
-    'handlers': {
-        'logfile': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(MobSF_HOME, 'debug.log'),
-            'formatter': 'standard',
-        },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'color',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.db.backends': {
-            'handlers': ['console', 'logfile'],
-            # DEBUG will log all queries, so change it to WARNING.
-            'level': 'INFO',
-            'propagate': False,   # Don't propagate to other handlers
-        },
-        'mobsf.MobSF': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'mobsf.StaticAnalyzer': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'mobsf.MalwareAnalyzer': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'mobsf.DynamicAnalyzer': {
-            'handlers': ['console', 'logfile'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,
+#     'formatters': {
+#         'standard': {
+#             'format': '[%(levelname)s] %(asctime)-15s - %(message)s',
+#             'datefmt': '%d/%b/%Y %H:%M:%S',
+#         },
+#         'color': {
+#             '()': 'colorlog.ColoredFormatter',
+#             'format':
+#                 '%(log_color)s[%(levelname)s] %(asctime)-15s - %(message)s',
+#             'datefmt': '%d/%b/%Y %H:%M:%S',
+#             'log_colors': {
+#                 'DEBUG': 'cyan',
+#                 'INFO': 'green',
+#                 'WARNING': 'yellow',
+#                 'ERROR': 'red',
+#                 'CRITICAL': 'red,bg_white',
+#             },
+#         },
+#     },
+#     'handlers': {
+#         'logfile': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(MobSF_HOME, 'debug.log'),
+#             'formatter': 'standard',
+#         },
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'color',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#         'django.db.backends': {
+#             'handlers': ['console', 'logfile'],
+#             # DEBUG will log all queries, so change it to WARNING.
+#             'level': 'INFO',
+#             'propagate': False,   # Don't propagate to other handlers
+#         },
+#         'mobsf.MobSF': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#         'mobsf.StaticAnalyzer': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#         'mobsf.MalwareAnalyzer': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#         'mobsf.DynamicAnalyzer': {
+#             'handlers': ['console', 'logfile'],
+#             'level': 'DEBUG',
+#             'propagate': False,
+#         },
+#     },
+# }
 JADX_TIMEOUT = int(os.getenv('MOBSF_JADX_TIMEOUT', 1800))
 DISABLE_AUTHENTICATION = os.getenv('MOBSF_DISABLE_AUTHENTICATION')
 RATELIMIT = os.getenv('MOBSF_RATELIMIT', '7/1m')
