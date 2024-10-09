@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>MobSF Static Analysis Report</title>
+    <title>Static Analysis Report</title>
     <meta name="description" content="MobSF Report">
     {% if host_os == 'windows' %}
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -38,15 +38,15 @@
   <body bgcolor="FFFFFF">
     <article id="cover">
       <div class="header">
-        <img src="{{base_url}}{% static "img/mobsf_logo.png" %}" class="center logo" alt="MobSF Logo"/>
+        <!-- <img src="{{base_url}}{% static "img/mobsf_logo.png" %}" class="center logo" alt="MobSF Logo"/> -->
         <div class="htext">ANDROID STATIC ANALYSIS REPORT </div>
       </div>
       </br></br></br>
      <div class="app">
-      <img class="center" id="icon" src="{% if icon_path %}{{dwd_dir}}{{icon_path}}{% else %}{{base_url}}{% static 'img/no_icon.png' %}{% endif %}" alt="app_icon"/>
+      <!-- <img class="center" id="icon" src="{% if icon_path %}{{dwd_dir}}{{icon_path}}{% else %}{{base_url}}{% static 'img/no_icon.png' %}{% endif %}" alt="app_icon"/> -->
      </div>
       <div class="center">
-        <h1><i class="fab fa-android"></i> {% if app_name %}  {{ app_name }}  {% else %} {{ file_name }} {% endif %} {% if version_name %}  ({{version_name}}) {% endif %}</h1>
+        <!-- <h1><i class="fab fa-android"></i> {% if app_name %}  {{ app_name }}  {% else %} {{ file_name }} {% endif %} {% if version_name %}  ({{version_name}}) {% endif %}</h1> -->
       </div>
      </br></br></br></br></br>
       <div class="container">
@@ -141,7 +141,7 @@
 </br></br>
 </br></br>
 </br></br>
-    <h2><i class="fas fa-chart-pie mr-1"></i> FINDINGS SEVERITY</h2>
+    <h2><i class="mr-1"></i> FINDINGS SEVERITY</h2>
     <table class="basic tbl-white">
       <tr>
         <th class="td-high"><i class="fas fa-bug"> </i> HIGH</th>
@@ -165,7 +165,8 @@
     <article id="contents">
 
       
-      <h2><i class="fas fa-box-open"></i> FILE INFORMATION</h2>
+      <!-- <h2><i class="fas fa-box-open"></i> FILE INFORMATION</h2> -->
+      <h2>FILE INFORMATION</h2>
 
       <h5>File Name:</h5> {{ file_name }}</br>
       <h5>Size: </h5> {{ size }}</br>
@@ -174,7 +175,8 @@
       <h5>SHA256:</h5> {{ sha256 }}</br>
      
 {% if app_type not in 'so' %}
-      <h2><i class="fas fa-info"></i> APP INFORMATION</h2>
+      <!-- <h2><i class="fas fa-info"></i> APP INFORMATION</h2> -->
+      <h2>APP INFORMATION</h2>
 
       <h5>App Name:</h5> {{ app_name }}</br>
       <h5>Package Name:</h5> {{ package_name }}</br>
@@ -187,7 +189,8 @@
 {% endif %}
 
 {% if app_type not in 'jar,aar,so' %}
-      <h2><i class="fas fa-th-large"></i> APP COMPONENTS </h2>
+      <!-- <h2><i class="fas fa-th-large"></i> APP COMPONENTS </h2> -->
+      <h2>APP COMPONENTS </h2>
 
         <h5>Activities:</h5> {{ activities | length }}</br>
         <h5>Services:</h5> {{ services | length }}</br>
@@ -199,7 +202,8 @@
         <h5>Exported Providers:</h5> <span {% if exported_count.exported_providers > 0 %} class="danger" {% endif %}> {{ exported_count.exported_providers }}</span></br>
   {% endif %}
   {% if app_type not in 'so' %}
-        <h2><i class="fa fa-certificate"></i> CERTIFICATE INFORMATION</h2>
+        <!-- <h2><i class="fa fa-certificate"></i> CERTIFICATE INFORMATION</h2> -->
+        <h2>CERTIFICATE INFORMATION</h2>
         {% if certificate_analysis.certificate_info %}
         <div class="panel-body">
               <p class="wrapped-text">{{ certificate_analysis.certificate_info }}</p>
@@ -209,7 +213,8 @@
       {% endif %}
   {% endif %}
       {% if permissions %}
-      <h2><i class="fa fa-list"></i> APPLICATION PERMISSIONS</h2>
+      <!-- <h2><i class="fa fa-list"></i> APPLICATION PERMISSIONS</h2> -->
+      <h2>APPLICATION PERMISSIONS</h2>
 
             <table class="basic">
               <thead>
@@ -275,7 +280,8 @@
             {% endif %}
       {% endif %}
       {% if apkid and app_type not in 'jar,aar'%}
-      <h2><i class="fas fa-fingerprint"></i> APKID ANALYSIS</h2>
+      <!-- <h2><i class="fas fa-fingerprint"></i> APKID ANALYSIS</h2> -->
+      <h2>APKID ANALYSIS</h2>
 
        <table class="basic">
                   <thead>
@@ -406,7 +412,8 @@
                     </table>
       {% endif %}
     {% if app_type not in 'so' %}
-     <h2><i class="fas fa-lock"></i> NETWORK SECURITY</h2>
+     <!-- <h2><i class="fas fa-lock"></i> NETWORK SECURITY</h2> -->
+     <h2>NETWORK SECURITY</h2>
      {% if network_security and 'network_summary' in network_security and network_security.network_summary|length > 0 %}
      <span class="danger">HIGH: </span>
      <h5 class="description-header">{{ network_security.network_summary.high }}</h5> | 
@@ -456,7 +463,8 @@
         </tbody>
         </table>
        
-      <h2><i class="fas fa fa-id-card"></i> CERTIFICATE ANALYSIS</h2>
+      <!-- <h2><i class="fas fa fa-id-card"></i> CERTIFICATE ANALYSIS</h2> -->
+      <h2>CERTIFICATE ANALYSIS</h2>
       {% if certificate_analysis and 'certificate_summary' in certificate_analysis and certificate_analysis.certificate_summary|length > 0 %}
       <span class="danger">HIGH: </span>
       <h5 class="description-header">{{ certificate_analysis.certificate_summary.high }}</h5> | 
@@ -496,7 +504,8 @@
         </tbody>
     </table>
    
-    <h2><i class="fas fa-search"></i> MANIFEST ANALYSIS</h2>
+    <!-- <h2><i class="fas fa-search"></i> MANIFEST ANALYSIS</h2> -->
+    <h2>MANIFEST ANALYSIS</h2>
     {% if manifest_analysis and 'manifest_summary' in manifest_analysis and manifest_analysis.manifest_summary|length > 0 %}
     <span class="danger">HIGH: </span>
     <h5 class="description-header">{{ manifest_analysis.manifest_summary.high }}</h5> | 
@@ -546,7 +555,8 @@
 										</tbody>
 										</table>
                    
-      <h2><i class="fas fa-code"></i> CODE ANALYSIS</h2>
+      <!-- <h2><i class="fas fa-code"></i> CODE ANALYSIS</h2> -->
+      <h2>CODE ANALYSIS</h2>
       {% if code_analysis and 'summary' in code_analysis and code_analysis.summary|length > 0 %}
       <span class="danger">HIGH: </span>
       <h5 class="description-header">{{ code_analysis.summary.high }}</h5> | 
@@ -625,7 +635,8 @@
     {% endif %}
             
      {% if binary_analysis  %}
-      <h2><i class="fa fa-flag"></i> SHARED LIBRARY BINARY ANALYSIS</h2>
+      <!-- <h2><i class="fa fa-flag"></i> SHARED LIBRARY BINARY ANALYSIS</h2> -->
+      <h2>SHARED LIBRARY BINARY ANALYSIS</h2>
 
         <table class="basic">
                     <thead>
@@ -683,7 +694,8 @@
                     </table>
     {% endif %}
     {% if app_type not in 'so' %}
-    <h2><i class="fa fa-id-badge"></i> NIAP ANALYSIS v1.3</h2>
+    <!-- <h2><i class="fa fa-id-badge"></i> NIAP ANALYSIS v1.3</h2> -->
+    <h2>NIAP ANALYSIS v1.3</h2>
     <table class="basic">
               <thead>
                   <tr>
@@ -745,7 +757,8 @@
 -->
 
     {% if malware_permissions %}
-    <h2><i class="fa fa-braille"></i> ABUSED PERMISSIONS</h2>
+    <!-- <h2><i class="fa fa-braille"></i> ABUSED PERMISSIONS</h2> -->
+    <h2>ABUSED PERMISSIONS</h2>
 
     <table id="table_ofac" class="table table-bordered table-hover table-striped">
       <thead>
@@ -968,7 +981,8 @@
          {% endif %}
     
         {% if secrets %}
-        <h2><i class="fas fa-key"></i> HARDCODED SECRETS</h2>
+        <!-- <h2><i class="fas fa-key"></i> HARDCODED SECRETS</h2> -->
+        <h2>HARDCODED SECRETS</h2>
             <table class="basic">
                     <thead>
                     <tr>
@@ -1050,7 +1064,8 @@
                   </p>
              
        {% endif %}
-       <h2><i class="fas fa-list"></i> SCAN LOGS</h2>
+       <!-- <h2><i class="fas fa-list"></i> SCAN LOGS</h2> -->
+       <h2>SCAN LOGS</h2>
     <table id="scan_logs" class="basic">
       <tr>
           <th>Timestamp</th>
@@ -1085,13 +1100,13 @@
     <article id="columns">
       </br>
       <hr>
-      <h3>Report Generated by - MobSF {{ version }} </h3>
+      <h3>Report Generated</h3>
       <section>
-        <p>
+        <!-- <p>
           Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis.
-        </p>
+        </p> -->
         <p>
-        <strong>© {% now "Y" %} Mobile Security Framework - MobSF | <a href="https://ajinabraham.com">Ajin Abraham</a> | <a href="https://opensecurity.in">OpenSecurity</a>.</strong>
+        <strong>© {% now "Y" %}.</strong>
       </p>
       </section>
     </article>
